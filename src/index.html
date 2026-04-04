@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kesan Coffee</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            coffee: {
+              50:  '#fdf8f2',
+              100: '#f5e6d3',
+              200: '#e8c9a0',
+              300: '#d4a06a',
+              400: '#c0803a',
+              500: '#8B4513',
+              600: '#6b3210',
+              700: '#4e240c',
+              800: '#321608',
+              900: '#1a0b04',
+            },
+            cream: '#faf5ee',
+            latte: '#c8a882',
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['DM Sans', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'DM Sans', sans-serif; background-color: #faf5ee; }
+    .hero-bg {
+      background: linear-gradient(135deg, rgba(26,11,4,0.85) 0%, rgba(78,36,12,0.7) 60%, transparent 100%),
+                  url('https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1400&auto=format&fit=crop') center/cover no-repeat;
+    }
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(139,69,19,0.2);
+    }
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: #c8a882;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+    .section-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(to right, #8B4513, #c8a882);
+      margin: 0 auto 1.5rem;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.7s ease both; }
+    .delay-1 { animation-delay: 0.15s; }
+    .delay-2 { animation-delay: 0.3s; }
+    .delay-3 { animation-delay: 0.45s; }
+    .btn-primary {
+      background: #8B4513;
+      color: #fff;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 8px 20px;
+      transition: background 0.25s, transform 0.2s;
+      text-transform: uppercase;
+    }
+    .btn-primary:hover {
+      background: #6b3210;
+      transform: translateY(-1px);
+    }
+    .category-icon {
+      width: 64px; height: 64px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      border: 2px solid #e8c9a0;
+      margin: 0 auto 8px;
+      font-size: 1.6rem;
+      box-shadow: 0 4px 12px rgba(139,69,19,0.1);
+      transition: box-shadow 0.3s;
+    }
+    .category-icon:hover {
+      box-shadow: 0 8px 20px rgba(139,69,19,0.2);
+    }
+    .promo-badge {
+      position: absolute;
+      top: 8px; right: 8px;
+      background: #8B4513;
+      color: #fff;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 3px 8px;
+      border-radius: 2px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body class="text-coffee-800">
+
+  <!-- NAVBAR -->
+  <nav class="bg-coffee-900 sticky top-0 z-50 shadow-lg">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <span class="font-display text-xl text-cream tracking-wide">Kesan Coffee</span>
+      <ul class="hidden md:flex gap-8 text-sm text-cream/80">
+        <li><a href="#" class="nav-link hover:text-cream transition-colors">Home</a></li>
+        <li><a href="#menu" class="nav-link hover:text-cream transition-colors">Menu</a></li>
+        <li><a href="#promo" class="nav-link hover:text-cream transition-colors">Story</a></li>
+        <li><a href="#" class="nav-link hover:text-cream transition-colors">Contact</a></li>
+        <li><a href="#" class="nav-link hover:text-cream transition-colors">About</a></li>
+        <li><a href="#" class="nav-link hover:text-cream transition-colors">Login</a></li>
+      </ul>
+      <button class="md:hidden text-cream text-2xl">☰</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-bg min-h-[75vh] flex items-center">
+    <div class="max-w-6xl mx-auto px-8 py-24">
+      <p class="text-latte text-sm uppercase tracking-widest mb-3 fade-up">Est. 2020 · Jakarta</p>
+      <h1 class="font-display text-5xl md:text-7xl text-white leading-tight mb-5 fade-up delay-1">
+        Welcome!<br/>
+        <span class="text-latte text-3xl md:text-4xl font-medium">We serve the richest</span><br/>
+        <span class="text-latte text-3xl md:text-4xl font-medium">coffee in the city!</span>
+      </h1>
+      <button class="btn-primary fade-up delay-2">Order Now</button>
+    </div>
+  </section>
+
+  <!-- CATEGORY ICONS -->
+  <section class="bg-cream py-10 border-b border-coffee-100">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-4 gap-6 text-center">
+      <div>
+        <div class="category-icon">☕</div>
+        <p class="text-xs text-coffee-600 font-medium">Hot Coffee</p>
+      </div>
+      <div>
+        <div class="category-icon">🧋</div>
+        <p class="text-xs text-coffee-600 font-medium">Iced Coffee</p>
+      </div>
+      <div>
+        <div class="category-icon">🍰</div>
+        <p class="text-xs text-coffee-600 font-medium">Dessert</p>
+      </div>
+      <div>
+        <div class="category-icon">🫖</div>
+        <p class="text-xs text-coffee-600 font-medium">Non-Coffee</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECIAL COFFEE -->
+  <section id="menu" class="py-16 bg-cream">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-center text-xs text-latte uppercase tracking-widest mb-2">Our Selection</p>
+      <h2 class="font-display text-3xl md:text-4xl text-center text-coffee-800 mb-2">Our Special Coffee</h2>
+      <div class="section-divider"></div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+
+        <!-- Card -->
+        <div class="bg-white rounded-xl overflow-hidden card-hover shadow-sm">
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&auto=format&fit=crop" alt="Kopi Susu" class="w-full h-36 object-cover"/>
+          <div class="p-4 text-center">
+            <h3 class="font-display text-sm font-semibold text-coffee-800 mb-1">Kopi Susu</h3>
+            <p class="text-xs text-coffee-500 mb-3">Rp. 20.000</p>
+            <button class="btn-primary w-full">Order Now</button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl overflow-hidden card-hover shadow-sm">
+          <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400&auto=format&fit=crop" alt="Dalgona Coffee" class="w-full h-36 object-cover"/>
+          <div class="p-4 text-center">
+            <h3 class="font-display text-sm font-semibold text-coffee-800 mb-1">Dalgona Coffee</h3>
+            <p class="text-xs text-coffee-500 mb-3">Rp. 22.000</p>
+            <button class="btn-primary w-full">Order Now</button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl overflow-hidden card-hover shadow-sm">
+          <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&auto=format&fit=crop" alt="Iced Coffee" class="w-full h-36 object-cover"/>
+          <div class="p-4 text-center">
+            <h3 class="font-display text-sm font-semibold text-coffee-800 mb-1">Iced Coffee</h3>
+            <p class="text-xs text-coffee-500 mb-3">Rp. 18.000</p>
+            <button class="btn-primary w-full">Order Now</button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl overflow-hidden card-hover shadow-sm">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&auto=format&fit=crop" alt="Caramel Latte" class="w-full h-36 object-cover"/>
+          <div class="p-4 text-center">
+            <h3 class="font-display text-sm font-semibold text-coffee-800 mb-1">Caramel Latte</h3>
+            <p class="text-xs text-coffee-500 mb-3">Rp. 25.000</p>
+            <button class="btn-primary w-full">Order Now</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECIAL DESSERT -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-center text-xs text-latte uppercase tracking-widest mb-2">Sweet Treats</p>
+      <h2 class="font-display text-3xl md:text-4xl text-center text-coffee-800 mb-2">Our Special Dessert</h2>
+      <div class="section-divider"></div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+
+        <div class="bg-cream rounded-xl overflow-hidden card-hover shadow-sm">
+          <img src="https://images.unsplash.com/photo-1528736235302-52922df5c122?w=400&auto=format&fit=crop" alt="Waffle Pancake" class="w-full h-36 object-cover"/>
+          <div class="p-4 text-center">
+            <h3 class="font-display text-sm font-semibold text-coffee-800 mb-1">Waffle Pancake</h3>
+            <p class="text-xs text-coffee-500 mb-3">Rp. 22.000</p>
+            <button class="btn-primary w-full">Order Now</button>
+          </div>
+        </div>
+
+        <div class="bg-cream rounded-xl overflow-hidden card-hover shadow-sm">
+          <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400&auto=format&fit=crop" alt="Tiramisu" class="w-full h-36 object-cover"/>
+          <div class="p-4 text-center">
+            <h3 class="font-display text-sm font-semibold text-coffee-800 mb-1">Chocolate Tiramisu</h3>
+            <p class="text-xs text-coffee-500 mb-3">Rp. 25.000</p>
+            <button class="btn-primary w-full">Order Now</button>
+          </div>
+        </div>
+
+        <div class="bg-cream rounded-xl overflow-hidden card-hover shadow-sm">
+          <img src="https://images.unsplash.com/photo-1604908177453-7462950a6a3b?w=400&auto=format&fit=crop" alt="Churros" class="w-full h-36 object-cover"/>
+          <div class="p-4 text-center">
+            <h3 class="font-display text-sm font-semibold text-coffee-800 mb-1">Churros</h3>
+            <p class="text-xs text-coffee-500 mb-3">Rp. 20.000</p>
+            <button class="btn-primary w-full">Order Now</button>
+          </div>
+        </div>
+
+        <div class="bg-cream rounded-xl overflow-hidden card-hover shadow-sm">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&auto=format&fit=crop" alt="Cheesecake" class="w-full h-36 object-cover"/>
+          <div class="p-4 text-center">
+            <h3 class="font-display text-sm font-semibold text-coffee-800 mb-1">Cheesecake</h3>
+            <p class="text-xs text-coffee-500 mb-3">Rp. 27.000</p>
+            <button class="btn-primary w-full">Order Now</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMO -->
+  <section id="promo" class="py-16 bg-coffee-900">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-center text-xs text-latte uppercase tracking-widest mb-2">Limited Time</p>
+      <h2 class="font-display text-3xl md:text-4xl text-center text-cream mb-2">Special Coffee Promo</h2>
+      <div class="section-divider mb-10"></div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+        <div class="bg-coffee-800 rounded-xl overflow-hidden card-hover relative border border-coffee-600">
+          <div class="promo-badge">Promo</div>
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&auto=format&fit=crop" alt="Kopi Susu" class="w-full h-36 object-cover opacity-90"/>
+          <div class="p-4 text-center">
+            <h3 class="font-display text-sm font-semibold text-cream mb-1">Kopi Susu</h3>
+            <p class="text-xs text-latte/70 line-through">Rp. 20.000</p>
+            <p class="text-sm text-latte font-semibold mb-3">Rp. 15.000</p>
+            <button class="btn-primary w-full">Order Now</button>
+          </div>
+        </div>
+
+        <div class="bg-coffee-800 rounded-xl overflow-hidden card-hover relative border border-coffee-600">
+          <div class="promo-badge">Promo</div>
+          <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400&auto=format&fit=crop" alt="Dalgona" class="w-full h-36 object-cover opacity-90"/>
+          <div class="p-4 text-center">
+            <h3 class="font-display text-sm font-semibold text-cream mb-1">Dalgona Coffee</h3>
+            <p class="text-xs text-latte/70 line-through">Rp. 22.000</p>
+            <p class="text-sm text-latte font-semibold mb-3">Rp. 17.000</p>
+            <button class="btn-primary w-full">Order Now</button>
+          </div>
+        </div>
+
+        <div class="bg-coffee-800 rounded-xl overflow-hidden card-hover relative border border-coffee-600">
+          <div class="promo-badge">Promo</div>
+          <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&auto=format&fit=crop" alt="Iced Coffee" class="w-full h-36 object-cover opacity-90"/>
+          <div class="p-4 text-center">
+            <h3 class="font-display text-sm font-semibold text-cream mb-1">Iced Coffee</h3>
+            <p class="text-xs text-latte/70 line-through">Rp. 18.000</p>
+            <p class="text-sm text-latte font-semibold mb-3">Rp. 13.000</p>
+            <button class="btn-primary w-full">Order Now</button>
+          </div>
+        </div>
+
+        <div class="bg-coffee-800 rounded-xl overflow-hidden card-hover relative border border-coffee-600">
+          <div class="promo-badge">Promo</div>
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&auto=format&fit=crop" alt="Caramel Latte" class="w-full h-36 object-cover opacity-90"/>
+          <div class="p-4 text-center">
+            <h3 class="font-display text-sm font-semibold text-cream mb-1">Caramel Latte</h3>
+            <p class="text-xs text-latte/70 line-through">Rp. 25.000</p>
+            <p class="text-sm text-latte font-semibold mb-3">Rp. 20.000</p>
+            <button class="btn-primary w-full">Order Now</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-coffee-900 border-t border-coffee-700 pt-12 pb-6">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10 text-cream/70 text-sm mb-8">
+      <div>
+        <h4 class="font-display text-cream text-base mb-4">Products</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-latte transition-colors">Mama Coffee</a></li>
+          <li><a href="#" class="hover:text-latte transition-colors">Expresso Coffee</a></li>
+          <li><a href="#" class="hover:text-latte transition-colors">MCB Coffee</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-display text-cream text-base mb-4">Category</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-latte transition-colors">Café</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-display text-cream text-base mb-4">Company Info</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-latte transition-colors">About us</a></li>
+          <li><a href="#" class="hover:text-latte transition-colors">Contact us</a></li>
+          <li><a href="#" class="hover:text-latte transition-colors">Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-display text-cream text-base mb-4">Follow Us</h4>
+        <div class="flex gap-3">
+          <a href="#" class="w-9 h-9 rounded-full bg-coffee-700 flex items-center justify-center hover:bg-latte/30 transition-colors text-sm">📷</a>
+          <a href="#" class="w-9 h-9 rounded-full bg-coffee-700 flex items-center justify-center hover:bg-latte/30 transition-colors text-sm">👤</a>
+          <a href="#" class="w-9 h-9 rounded-full bg-coffee-700 flex items-center justify-center hover:bg-latte/30 transition-colors text-sm">💬</a>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pt-6 border-t border-coffee-700 text-center text-xs text-cream/40">
+      © 2024 Kesan Coffee. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
